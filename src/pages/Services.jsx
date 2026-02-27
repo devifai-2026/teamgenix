@@ -1,15 +1,51 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 import { FaArrowRight, FaCheck, FaShieldAlt, FaClock, FaUsers, FaStar } from 'react-icons/fa';
+import workerCleaning from '../assets/images/worker_cleaning.png';
+import factoryHero from '../assets/images/factory_hero.png';
+import factoryProduction from '../assets/images/factory_production.png';
+import factoryAerial from '../assets/images/factory_aerial.png';
 
 const servicesList = [
     {
+        icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+        title: 'Industrial Cleaning',
+        desc: 'Specialized sanitation for manufacturing floors utilizing heavy-duty machinery and industrial-grade, safe, and compliant chemicals.',
+        features: ['Factory floor scrubbing', 'Machine deep cleaning', 'Industrial waste disposal', 'Hazardous zone hygiene'],
+        image: workerCleaning,
+        accent: '#fff9d4', accentRgb: '255,249,212',
+    },
+    {
+        icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+        title: 'Office Support Services',
+        desc: 'Reliable administrative and support staff designed to keep your ongoing daily operations running smoothly without interruption.',
+        features: ['Front desk & reception', 'Mail room management', 'Conference room support', 'In-house courier services'],
+        image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop',
+        accent: '#ffcea5', accentRgb: '255,206,165',
+    },
+    {
+        icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+        title: 'Industrial Maintenance',
+        desc: 'Expert technical support, preventive machinery maintenance, and quick emergency response to keep your production lines fully operational.',
+        features: ['Machine maintenance engineers', 'Preventive plant maintenance', 'Electrical infrastructure audits', 'Production downtime reduction'],
+        image: factoryProduction,
+        accent: '#f5d060', accentRgb: '245,208,96',
+    },
+    {
+        icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+        title: 'Payroll Management',
+        desc: 'Ensure 100% statutory compliance and on-time salary disbursements with our robust, error-free payroll management solutions.',
+        features: ['PF & ESI compliance', 'Zero payroll errors', 'Automated disbursements', 'Statutory filings'],
+        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
+        accent: '#ffcea5', accentRgb: '255,206,165',
+    },
+    {
         icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-        title: 'Integrated Facility Management',
-        desc: 'End-to-end management of all your facility needs, bringing together multiple services under a single, streamlined contract for maximum efficiency.',
-        features: ['Single point of contact', 'SOP-driven operations', 'Monthly reporting & audits', '24/7 emergency response'],
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+        title: 'Industrial Facility Management',
+        desc: 'End-to-end management of all your factory needs, bringing together technical, cleaning, and administrative services under one expert umbrella.',
+        features: ['Full plant oversight', 'Industrial SOP compliance', '24/7 technical standby', 'Facility audit & reporting'],
+        image: factoryAerial,
         accent: '#f5d060', accentRgb: '245,208,96',
     },
     {
@@ -28,38 +64,6 @@ const servicesList = [
         image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop',
         accent: '#a68c3a', accentRgb: '166,140,58',
     },
-    {
-        icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-        title: 'Office Support Services',
-        desc: 'Reliable administrative and support staff designed to keep your ongoing daily operations running smoothly without interruption.',
-        features: ['Front desk & reception', 'Mail room management', 'Conference room support', 'In-house courier services'],
-        image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop',
-        accent: '#ffcea5', accentRgb: '255,206,165',
-    },
-    {
-        icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-        title: 'Payroll Management',
-        desc: 'Ensure 100% statutory compliance and on-time salary disbursements with our robust, error-free payroll management solutions.',
-        features: ['PF & ESI compliance', 'Zero payroll errors', 'Automated disbursements', 'Statutory filings'],
-        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
-        accent: '#ffcea5', accentRgb: '255,206,165',
-    },
-    {
-        icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-        title: 'Cleaning Services',
-        desc: 'Exceptional cleaning utilizing state-of-the-art machinery, high-quality tools, and safe, environmentally compliant chemicals.',
-        features: ['Daily housekeeping', 'Deep cleaning schedules', 'Eco-friendly chemicals', 'Hospital-grade standards'],
-        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop',
-        accent: '#fff9d4', accentRgb: '255,249,212',
-    },
-    {
-        icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-        title: 'Mechanical & Electrical',
-        desc: 'Expert technical support, preventive maintenance, and quick emergency response to keep your core infrastructure fully operational.',
-        features: ['Certified MEP engineers', 'Preventive maintenance', 'Emergency breakdowns', 'Energy audits'],
-        image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop',
-        accent: '#f5d060', accentRgb: '245,208,96',
-    },
 ];
 
 const highlights = [
@@ -70,7 +74,27 @@ const highlights = [
 ];
 
 export default function Services() {
+    const [searchParams] = useSearchParams();
     const [active, setActive] = useState(0);
+
+    useEffect(() => {
+        const serviceId = searchParams.get('s');
+        if (serviceId) {
+            const index = servicesList.findIndex(s => {
+                const title = s.title.toLowerCase();
+                if (serviceId === 'cleaning') return title.includes('cleaning');
+                if (serviceId === 'office') return title.includes('office');
+                if (serviceId === 'mep') return title.includes('mechanical');
+                if (serviceId === 'payroll') return title.includes('payroll');
+                if (serviceId === 'ifm') return title.includes('integrated');
+                return false;
+            });
+            if (index !== -1) {
+                setActive(index);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    }, [searchParams]);
 
     return (
         <div className="min-h-screen" style={{ background: '#ffffff' }}>
@@ -78,8 +102,8 @@ export default function Services() {
             {/* ===== HERO ===== */}
             <div className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop"
-                        alt="" className="w-full h-full object-cover" style={{ opacity: 0.15 }} />
+                    <img src={factoryHero}
+                        alt="Industrial services" className="w-full h-full object-cover" style={{ opacity: 0.15 }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,10,40,0.82) 0%, rgba(10,10,40,0.55) 50%, rgba(10,10,40,0.75) 100%)' }} />
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(245,208,96,0.1) 0%, transparent 60%)' }} />
                 </div>

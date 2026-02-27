@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
 import AnimatedSection from '../components/AnimatedSection';
 import { FaCheck, FaQuoteLeft, FaStar, FaArrowRight, FaShieldAlt, FaUsers, FaClock, FaTrophy } from 'react-icons/fa';
+import workerCleaning from '../assets/images/worker_cleaning.png';
+import factoryHero from '../assets/images/factory_hero.png';
+import factoryProduction from '../assets/images/factory_production.png';
+import factoryAerial from '../assets/images/factory_aerial.png';
 
 /* ============================================================
    DATA
@@ -10,12 +14,12 @@ import { FaCheck, FaQuoteLeft, FaStar, FaArrowRight, FaShieldAlt, FaUsers, FaClo
 
 const services = [
   {
-    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-    title: 'Integrated Facility Management',
-    desc: 'End-to-end oversight of your entire facility ecosystem with SOP-driven protocols.',
-    accent: '#fff9d4',
-    accentRgb: '255, 249, 212',
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop',
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+    title: 'Industrial Cleaning',
+    desc: 'Deep cleaning and sanitation for manufacturing plants, maintaining the highest industrial hygiene standards.',
+    accent: '#fef3c7',
+    accentRgb: '254, 243, 199',
+    image: workerCleaning,
   },
   {
     icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
@@ -26,6 +30,14 @@ const services = [
     image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop',
   },
   {
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    title: 'Mechanical & Machine Maintenance',
+    desc: 'Preventive and breakdown maintenance of industrial machinery and MEP infrastructure.',
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+    image: factoryProduction,
+  },
+  {
     icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
     title: 'Payroll Management',
     desc: 'Accurate, compliant payroll processing with zero errors, every single cycle.',
@@ -34,20 +46,12 @@ const services = [
     image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
   },
   {
-    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-    title: 'Cleaning Services',
-    desc: 'Hospital-grade hygiene standards maintained across all your spaces, daily.',
-    accent: '#fef3c7',
-    accentRgb: '254, 243, 199',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    title: 'Mechanical & Electrical',
-    desc: 'Certified engineers ensuring peak performance of your MEP infrastructure.',
-    accent: '#f5d060',
-    accentRgb: '245, 208, 96',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop',
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    title: 'Integrated Facility Management',
+    desc: 'End-to-end oversight of your entire facility ecosystem with SOP-driven protocols.',
+    accent: '#fff9d4',
+    accentRgb: '255, 249, 212',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
@@ -66,45 +70,20 @@ const stats = [
   { value: 'Zero', label: 'Outsourcing', accent: '#fff9d4', accentRgb: '255, 249, 212' },
 ];
 
-const testimonials = [
-  {
-    name: 'Rajesh Kumar',
-    role: 'VP Operations, Tech Corp India',
-    text: 'Teamgenix transformed our facility operations completely. Their in-house approach means consistent quality every single day. We\'ve seen a 40% reduction in operational issues since they took over.',
-    stars: 5,
-    accent: '#fff9d4',
-    avatar: 'RK',
-  },
-  {
-    name: 'Priya Sharma',
-    role: 'Facility Head, Nexus Towers',
-    text: 'The payroll management and office support services have been impeccable. Zero errors, full compliance, and their team responds within minutes. Truly the gold standard in facility management.',
-    stars: 5,
-    accent: '#f5d060',
-    avatar: 'PS',
-  },
-  {
-    name: 'Aditya Mehta',
-    role: 'COO, Pinnacle Properties',
-    text: 'What sets Teamgenix apart is their no-outsourcing policy. Every technician is trained in-house, which shows in the quality. Our clients consistently praise the facility standards.',
-    stars: 5,
-    accent: '#ffcea5',
-    avatar: 'AM',
-  },
-];
+
 
 const industries = [
   {
-    title: 'Corporate Offices',
-    desc: 'World-class workspace maintenance for Fortune 500 companies and growing enterprises alike.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop',
+    title: 'Manufacturing & Factories',
+    desc: 'Specialized facility management for high-stakes industrial environments, ensuring zero downtime and maximum safety.',
+    image: factoryAerial,
     accent: '#f5d060',
     accentRgb: '245, 208, 96',
   },
   {
-    title: 'Commercial Complexes',
-    desc: 'Complete facility solutions for malls, retail spaces, and commercial developments.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=900&auto=format&fit=crop',
+    title: 'Corporate Offices',
+    desc: 'World-class workspace maintenance for Fortune 500 companies and growing enterprises alike.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop',
     accent: '#ffcea5',
     accentRgb: '255, 206, 165',
   },
@@ -143,8 +122,8 @@ export default function Home() {
               <div className="badge badge-sun mb-6">About Teamgenix</div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#0f0f1e] font-heading leading-tight">
                 Setting the{' '}
-                <span className="gradient-text-primary">Standard</span>
-                {' '}in Facility Management
+                <span className="gradient-text-primary">Industrial</span>
+                {' '}Excellence in Facility Management
               </h2>
               <div className="trio-divider w-24 mb-8" />
               <p className="text-lg text-gray-500 leading-relaxed mb-6">
@@ -167,8 +146,8 @@ export default function Home() {
             <AnimatedSection delay={0.2} className="relative">
               <div className="relative rounded-3xl overflow-hidden" style={{ height: '480px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1200&auto=format&fit=crop"
-                  alt="Teamgenix facility management team"
+                  src={factoryHero}
+                  alt="Industrial facility management"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay */}
@@ -434,8 +413,8 @@ export default function Home() {
         {/* Full-bleed background image */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2070&auto=format&fit=crop"
-            alt="Modern office"
+            src={factoryHero}
+            alt="Industrial facility background"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0"
@@ -481,16 +460,16 @@ export default function Home() {
             <AnimatedSection delay={0.2}>
               <div className="badge badge-sun mb-6">Our Commitment</div>
               <h2 className="text-4xl md:text-5xl font-bold text-white font-heading mb-6 leading-tight">
-                Building the Future of{' '}
-                <span className="gradient-text-trio">Facilities</span>
+                Building the Future of <br />
+                <span className="gradient-text-trio">Industrial Parks</span>
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
                 Teamgenix operates with a singular vision — to bring global standards of facility management to every building, every corridor, every workspace across India. Our numbers tell the story of trust.
               </p>
               <div className="relative rounded-2xl overflow-hidden mb-6" style={{ height: '220px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=900&auto=format&fit=crop"
-                  alt="Teamgenix operations"
+                  src={factoryProduction}
+                  alt="Industrial operations"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(5,5,24,0.3), rgba(46,46,255,0.15))' }} />
@@ -503,69 +482,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="section section-alt relative overflow-hidden py-24 px-6">
-        {/* Decorative */}
-        <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(245,208,96,0.08) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(46,46,255,0.05) 0%, transparent 70%)' }} />
 
-        <div className="container mx-auto max-w-7xl">
-          <AnimatedSection className="text-center mb-16">
-            <div className="badge badge-peach mx-auto">Testimonials</div>
-            <h2 className="text-4xl md:text-6xl font-bold text-[#0f0f1e] font-heading mt-2 mb-4">
-              What Our <span className="gradient-text-peach">Clients Say</span>
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Don't take our word for it — hear from the organizations that trust us with their most critical operations.
-            </p>
-            <div className="trio-divider w-24 mx-auto mt-6" />
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={i} delay={i * 0.15}>
-                <div className="testimonial-card p-8 h-full flex flex-col">
-                  {/* Quote icon */}
-                  <FaQuoteLeft className="text-3xl mb-6" style={{ color: t.accent, opacity: 0.6 }} />
-
-                  {/* Stars */}
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: t.stars }).map((_, si) => (
-                      <FaStar key={si} className="text-sm" style={{ color: '#FFD700' }} />
-                    ))}
-                  </div>
-
-                  {/* Text */}
-                  <p className="text-gray-500 leading-relaxed flex-1 mb-8 text-sm">
-                    "{t.text}"
-                  </p>
-
-                  {/* Divider */}
-                  <div className="h-px w-full mb-6" style={{ background: `rgba(0,0,0,0.06)` }} />
-
-                  {/* Author */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold font-heading shrink-0"
-                      style={{
-                        background: `rgba(0,0,0,0.04)`,
-                        border: `1px solid rgba(0,0,0,0.08)`,
-                        color: t.accent === '#fff9d4' || t.accent === '#f5d060' ? '#b8a63a' : '#a66a3a',
-                      }}>
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-[#0f0f1e] text-sm">{t.name}</div>
-                      <div className="text-xs text-gray-400">{t.role}</div>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ===== CTA BANNER ===== */}
       <section className="relative overflow-hidden py-32 px-6">

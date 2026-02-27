@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import navlogo from "../../src/assets/NavbarLogo.png"
 
 const quickLinks = [
     { to: '/', label: 'Home' },
@@ -11,11 +12,11 @@ const quickLinks = [
 ];
 
 const services = [
-    'Integrated Facility Management',
-    'Office Support Services',
-    'Payroll Management',
-    'Cleaning Services',
-    'Mechanical & Electrical',
+    { label: 'Industrial Cleaning', id: 'cleaning' },
+    { label: 'Factory Support Services', id: 'office' },
+    { label: 'Mechanical & Machine Maintenance', id: 'mep' },
+    { label: 'Payroll Management', id: 'payroll' },
+    { label: 'Industrial Facility Management', id: 'ifm' },
 ];
 
 export default function Footer() {
@@ -26,21 +27,17 @@ export default function Footer() {
                 {/* Brand */}
                 <div className="flex flex-col gap-6">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 shrink-0">
-                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="36" height="36" rx="8" fill="#0f0f1e" fillOpacity="0.88" />
-                                <text y="27" x="18" textAnchor="middle" fontSize="22" fontFamily="Outfit, sans-serif" fontWeight="800" fill="white">T</text>
-                                <rect x="7" y="30" width="22" height="3" rx="1.5" fill="#f5d060" />
-                            </svg>
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                            <div className="text-2xl font-extrabold tracking-tight font-heading">Teamgenix</div>
-                            <div className="text-[10px] font-bold uppercase tracking-[2px] text-gray-400">Services Solution Pvt Ltd</div>
+                        <div className="h-20 w-auto flex items-center">
+                            <img 
+                                src={navlogo} 
+                                alt="TeamGenix Logo" 
+                                className="h-full w-auto object-contain"
+                            />
                         </div>
                     </div>
                     <p className="text-gray-500 text-base leading-relaxed max-w-sm">
-                        A trusted facility management partner delivering reliability, cleanliness,
-                        and efficiency to businesses and homes since 2018.
+                        A specialized industrial facility management partner delivering precision, reliability,
+                        and hygiene excellence to manufacturing sectors since 2018.
                     </p>
                     <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full border w-fit"
                         style={{ background: 'rgba(245,208,96,0.1)', borderColor: 'rgba(245,208,96,0.2)' }}>
@@ -75,12 +72,12 @@ export default function Footer() {
                     </h4>
                     <ul className="flex flex-col gap-4">
                         {services.map((s) => (
-                            <li key={s}>
-                                <Link to="/services" className="group flex items-center gap-2 text-gray-400 transition-all duration-300" onMouseEnter={e => e.currentTarget.style.color = '#f5d060'} onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}>
+                            <li key={s.id}>
+                                <Link to={`/services?s=${s.id}`} className="group flex items-center gap-2 text-gray-400 transition-all duration-300" onMouseEnter={e => e.currentTarget.style.color = '#f5d060'} onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}>
                                     <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover:translate-x-1">
                                         <path d="M6 3.5L10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
-                                    <span className="font-medium">{s}</span>
+                                    <span className="font-medium">{s.label}</span>
                                 </Link>
                             </li>
                         ))}

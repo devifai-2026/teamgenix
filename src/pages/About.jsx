@@ -2,6 +2,9 @@ import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCheck } from 'react-icons/fa';
+import factoryHero from '../assets/images/factory_hero.png';
+import factoryAerial from '../assets/images/factory_aerial.png';
+import workerCleaning from '../assets/images/worker_cleaning.png';
 
 const values = [
     {
@@ -38,8 +41,8 @@ export default function About() {
             {/* ===== HERO ===== */}
             <div className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 pb-20 px-6">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
-                        alt="" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
+                    <img src={factoryHero}
+                        alt="Manufacturing facility" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(5,5,25,0.88) 0%, rgba(10,10,35,0.7) 100%)' }} />
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(255,249,212,0.08) 0%, transparent 60%)' }} />
                 </div>
@@ -51,7 +54,7 @@ export default function About() {
                                 About <span className="gradient-text-sun">Teamgenix</span>
                             </h1>
                             <p className="text-lg text-white/75 leading-relaxed mb-8">
-                                Dedicated to setting new benchmarks in Facility Management — one building at a time.
+                                India's Most Trusted Partner in Industrial & Manufacturing Facility Management.
                             </p>
                             <div className="trio-divider w-24 mb-8" />
                             <Link to="/contact" className="btn btn-primary text-navy font-bold">
@@ -81,8 +84,8 @@ export default function About() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <AnimatedSection className="relative">
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ height: '480px' }}>
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Teamgenix office" className="w-full h-full object-cover" style={{ opacity: 0.85 }} />
+                                <img src={factoryAerial}
+                                    alt="Factory facility" className="w-full h-full object-cover" style={{ opacity: 0.85 }} />
                                 <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(13,13,43,0.95) 100%)' }} />
                                 <div className="absolute inset-0 rounded-3xl" style={{ border: '1px solid rgba(245,208,96,0.2)', boxShadow: 'inset 0 0 40px rgba(0,0,0,0.3)' }} />
                             </div>
@@ -101,7 +104,7 @@ export default function About() {
                             </h2>
                             <div className="trio-divider w-24 mb-6" />
                             <p className="text-lg text-[#0f0f1e]/80 leading-relaxed mb-6 font-medium">
-                                Teamgenix Services Solution Pvt Ltd is a young, energetic, and progressive service organization. Despite being a modern company, our leadership and workforce bring vast experience in facility management services.
+                                Teamgenix Services Solution Pvt Ltd is a specialized industrial service organization. We bring vast experience in managing complex manufacturing environments and large-scale factory ecosystems.
                             </p>
                             <p className="text-gray-500 leading-relaxed mb-8">
                                 We specialize in tailoring solutions to meet the exact functionality, comfort, health & safety, and efficiency needs of your premises — no two solutions look the same.

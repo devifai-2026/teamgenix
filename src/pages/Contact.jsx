@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock, FaArrowRight, FaCheck } from 'react-icons/fa';
+import factoryHero from '../assets/images/factory_hero.png';
 
 const contactInfo = [
     {
@@ -63,8 +64,8 @@ export default function Contact() {
             {/* ===== HERO ===== */}
             <div className="relative min-h-[45vh] flex items-center overflow-hidden pt-28 pb-16 px-6">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop"
-                        alt="" className="w-full h-full object-cover" style={{ opacity: 0.15 }} />
+                    <img src={factoryHero}
+                        alt="Contact Teamgenix industrial" className="w-full h-full object-cover" style={{ opacity: 0.15 }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(20,20,60,0.65) 0%, rgba(20,20,60,0.85) 100%)' }} />
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(92,255,92,0.06) 0%, transparent 55%)' }} />
                 </div>
@@ -174,12 +175,12 @@ export default function Contact() {
                                             style={{ ...inputStyle('service'), appearance: 'none' }}
                                             onFocus={() => setFocused('service')} onBlur={() => setFocused('')}>
                                             <option value="" disabled>Select a service</option>
-                                            <option value="Integrated FM">Integrated Facility Management</option>
-                                            <option value="Office Support">Office Support Services</option>
+                                            <option value="Integrated FM">Industrial Facility Management</option>
+                                            <option value="Factory Support">Factory Support Services</option>
                                             <option value="Payroll">Payroll Management</option>
-                                            <option value="Cleaning">Cleaning Services</option>
-                                            <option value="Mechanical">Mechanical & Electrical</option>
-                                            <option value="Other">Other / Custom</option>
+                                            <option value="Cleaning">Industrial Cleaning</option>
+                                            <option value="Mechanical">Mechanical & Machine Maintenance</option>
+                                            <option value="Other">Other / Industrial Custom</option>
                                         </select>
                                     </div>
 

@@ -17,8 +17,8 @@
   --color-gray-border: #f1f3f7;
 
   /* Fonts */
-  --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Bricolage Grotesque", sans-serif;
+  --font-heading: "Open Sans", sans-serif;
+  --font-body: "Open Sans", sans-serif;
 
   /* Custom Gradients - Softer & Warmer */
   --background-image-gradient-sun: linear-gradient(135deg, #fff9d4 0%, #fef3c7 100%);

@@ -3,39 +3,43 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa';
 
+import factoryHero from '../assets/images/factory_hero.png';
+import factoryProduction from '../assets/images/factory_production.png';
+import factoryAerial from '../assets/images/factory_aerial.png';
+
 const slides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-    accent: '#fff9d4',
-    accentRgb: '255, 249, 212',
-    label: 'Sun-Kissed Standards',
-    title: 'Future-Ready\nFacility Management',
-    subtitle: 'Elevate your workspace with intelligent, technology-driven solutions that scale with your vision.',
-    cta: 'Explore Services',
+    image: factoryHero,
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+    label: 'Industrial Excellence',
+    title: 'Precision-Driven\nIndustrial Management',
+    subtitle: 'Specialized facility management for high-stakes manufacturing environments, ensuring zero downtime and peak performance.',
+    cta: 'Industrial Services',
     ctaLink: '/services',
     kenBurns: 'zoom-in-right',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop',
-    accent: '#c9ffc7',
-    accentRgb: '201, 255, 199',
-    label: 'Nature-Inspired Logic',
-    title: 'Seamless Corporate\nServices',
-    subtitle: 'From cleaning to payroll management, we handle everything — so you focus on what matters most.',
-    cta: 'Get a Quote',
+    image: factoryProduction,
+    accent: '#fff9d4',
+    accentRgb: '255, 249, 212',
+    label: 'Manufacturing Logics',
+    title: 'Seamless Factory\nSupport Services',
+    subtitle: 'From industrial sanitation to machine maintenance, we provide SOP-driven protocols for continuous production cycles.',
+    cta: 'Get a Quotation',
     ctaLink: '/contact',
     kenBurns: 'zoom-in-left',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop',
+    image: factoryAerial,
     accent: '#ffcea5',
     accentRgb: '255, 206, 165',
-    label: 'Warm & Compliant',
-    title: 'Zero Compromise\non Quality',
-    subtitle: 'Our in-house trained professionals ensure your facilities run at peak performance, 24/7.',
+    label: 'Zero Downtime',
+    title: 'Integrated Industrial\nEcosystems',
+    subtitle: '100% compliant, in-house trained professionals dedicated to the safety and efficiency of your manufacturing facilities.',
     cta: 'Why Teamgenix',
     ctaLink: '/why-teamgenix',
     kenBurns: 'zoom-out',

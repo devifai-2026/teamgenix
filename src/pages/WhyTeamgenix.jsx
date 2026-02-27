@@ -2,6 +2,8 @@ import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import { Link } from 'react-router-dom';
 import { FaCheck, FaArrowRight, FaShieldAlt } from 'react-icons/fa';
+import factoryHero from '../assets/images/factory_hero.png';
+import workerCleaning from '../assets/images/worker_cleaning.png';
 
 const usps = [
     { text: 'Client-focused and budget-friendly solutions', accent: '#f5d060', accentRgb: '245,208,96' },
@@ -39,8 +41,8 @@ export default function WhyTeamgenix() {
             {/* ===== HERO ===== */}
             <div className="relative min-h-[58vh] flex items-center overflow-hidden pt-28 pb-20 px-6">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
-                        alt="" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
+                    <img src={factoryHero}
+                        alt="Industrial facility" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(10,10,40,0.88) 0%, rgba(10,10,40,0.65) 60%, rgba(10,10,40,0.75) 100%)' }} />
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 25% 50%, rgba(255,46,46,0.06) 0%, transparent 50%)' }} />
                 </div>
@@ -50,7 +52,7 @@ export default function WhyTeamgenix() {
                         <h1 className="text-5xl md:text-7xl font-bold text-white font-heading mb-6 leading-tight">
                             Why Choose <span className="gradient-text-peach">Us?</span>
                         </h1>
-                        <p className="text-lg text-white/75 leading-relaxed mb-8">Discover what sets us apart as the most trusted facility management partner in the region.</p>
+                        <p className="text-lg text-white/75 leading-relaxed mb-8">Discover what sets us apart as India's most specialized industrial facility management partner.</p>
                         <div className="trio-divider w-24" />
                     </div>
                 </AnimatedSection>
@@ -81,12 +83,12 @@ export default function WhyTeamgenix() {
                             </h2>
                             <div className="trio-divider w-24 mb-6" />
                             <p className="text-gray-500 leading-relaxed text-lg mb-8">
-                                When you choose Teamgenix, you're not just hiring a contractor; you're partnering with a dedicated team that holds itself to the highest standards. We never outsource — meaning the quality you expect is the quality you receive, every single day.
+                                Handling complex manufacturing environments requires specialized expertise and a zero-compromise approach to safety. We never outsource — meaning the precision industrial standards you expect are delivered by our own hand-picked, hand-trained team, every single day.
                             </p>
 
-                            <div className="relative rounded-3xl overflow-hidden mt-4" style={{ height: '280px' }}>
-                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=900&auto=format&fit=crop"
-                                    alt="Teamgenix team" className="w-full h-full object-cover" style={{ opacity: 0.7 }} />
+                            <div className="relative rounded-3xl overflow-hidden mt-4" style={{ height: '350px' }}>
+                                <img src={workerCleaning}
+                                    alt="Industrial maintenance team" className="w-full h-full object-cover" style={{ opacity: 0.9 }} />
                                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,10,30,0.8) 0%, transparent 60%)' }} />
                                 <div className="absolute inset-0 rounded-3xl" style={{ border: '1px solid rgba(255,249,212,0.2)' }} />
                                 <div className="absolute bottom-4 left-5">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import navlogo from "../../src/assets/NavbarLogo.png"
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -30,22 +31,15 @@ export default function Navbar() {
           ? 'shadow-md py-3' 
           : 'bg-transparent'
       }`}
-      style={scrolled ? { background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(0,0,40,0.08)' } : {}}
+      style={scrolled ? { background: 'rgba(255, 255, 255, 0.4)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' } : {}}
     >
       <div className="container mx-auto px-6 flex items-center justify-between gap-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 shrink-0" onClick={handleNavClick}>
-          <div className="w-10 h-10 shrink-0">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" rx="8" fill="#0f0f1e" fillOpacity="0.9"/>
-              <text y="27" x="18" textAnchor="middle" fontSize="22" fontFamily="Outfit, sans-serif" fontWeight="800" fill="white">T</text>
-              <rect x="7" y="30" width="22" height="3" rx="1.5" fill="#f5d060"/>
-            </svg>
+        <Link to="/" className="flex items-center shrink-0" onClick={handleNavClick}>
+          <div className="h-16 w-auto flex items-center shrink-0">
+            <img src={navlogo} alt="TeamGenix Logo" className="h-full w-auto object-contain" />
           </div>
-          <div className="flex flex-col leading-tight">
-            <span className={`text-xl font-extrabold tracking-tight font-heading ${scrolled ? 'text-[#0f0f1e]' : 'text-white'}`}>Teamgenix</span>
-            <span className={`text-[0.65rem] font-medium uppercase tracking-widest hidden sm:block ${scrolled ? 'text-gray-400' : 'text-white/70'}`}>Services Solution</span>
-          </div>
+       
         </Link>
 
         {/* Desktop Nav */}
@@ -59,7 +53,7 @@ export default function Navbar() {
                 `relative py-2 text-base font-semibold transition-all duration-300 whitespace-nowrap tracking-wide font-heading ${
                   isActive
                     ? scrolled ? 'text-[#0f0f1e]' : 'text-white'
-                    : scrolled ? 'text-gray-500 hover:text-[#0f0f1e]' : 'text-white/75 hover:text-white'
+                    : scrolled ? 'text-[#0f0f1e]/80 hover:text-[#0f0f1e]' : 'text-white/75 hover:text-white'
                 }`
               }
             >
@@ -96,15 +90,15 @@ export default function Navbar() {
         >
           <motion.span 
             animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-gray-700' : 'bg-white'}`}
+            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-black' : 'bg-white'}`}
           />
           <motion.span 
             animate={menuOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
-            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-gray-700' : 'bg-white'}`}
+            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-black' : 'bg-white'}`}
           />
           <motion.span 
             animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-gray-700' : 'bg-white'}`}
+            className={`w-6 h-0.5 rounded-full block ${scrolled ? 'bg-black' : 'bg-white'}`}
           />
         </button>
       </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import factoryHero from '../assets/images/factory_hero.png';
 
 const industries = [
     { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', title: 'Iron, Steel & Manufacturing', accent: '#f5d060', accentRgb: '245,208,96' },
@@ -25,8 +26,8 @@ export default function Industries() {
             {/* ===== HERO ===== */}
             <div className="relative min-h-[55vh] flex items-center overflow-hidden pt-28 pb-20 px-6">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                        alt="" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
+                    <img src={factoryHero}
+                        alt="Manufacturing industrial sector" className="w-full h-full object-cover" style={{ opacity: 0.18 }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10,10,40,0.85) 0%, rgba(10,10,40,0.6) 50%, rgba(10,10,40,0.8) 100%)' }} />
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 40%, rgba(245,208,96,0.1) 0%, transparent 50%)' }} />
                 </div>
@@ -51,7 +52,7 @@ export default function Industries() {
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0f0f1e] font-heading mb-4">
                             10+ Industry <span className="gradient-text-primary">Verticals</span>
                         </h2>
-                        <p className="text-gray-400 max-w-xl mx-auto">From manufacturing floors to corporate towers — we bring the same commitment everywhere.</p>
+                        <p className="text-gray-400 max-w-xl mx-auto">From high-tech manufacturing floors to heavy industrial plants — we bring specialist expertise to every sector.</p>
                     </AnimatedSection>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
