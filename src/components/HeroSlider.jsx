@@ -3,18 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa';
 
-import factoryHero from '../assets/images/factory_hero.png';
-import factoryProduction from '../assets/images/factory_production.png';
-import factoryAerial from '../assets/images/factory_aerial.png';
+import factorySetup from '../assets/images/factory_setup.png';
+import retailShop from '../assets/images/retail_shop.png';
+import hospitalInterior from '../assets/images/hospital_interior.png';
+import corporateOffice from '../assets/images/corporate_office.png';
 
 const slides = [
   {
     id: 1,
-    image: factoryHero,
+    image: factorySetup,
     accent: '#f5d060',
     accentRgb: '245, 208, 96',
-    label: 'Industrial Excellence',
-    title: 'Precision-Driven\nIndustrial Management',
+    label: 'Industrial Facilities',
+    title: 'Industry\n(Factory Setup)',
     subtitle: 'Specialized facility management for high-stakes manufacturing environments, ensuring zero downtime and peak performance.',
     cta: 'Industrial Services',
     ctaLink: '/services',
@@ -22,27 +23,39 @@ const slides = [
   },
   {
     id: 2,
-    image: factoryProduction,
+    image: retailShop,
     accent: '#fff9d4',
     accentRgb: '255, 249, 212',
-    label: 'Manufacturing Logics',
-    title: 'Seamless Factory\nSupport Services',
-    subtitle: 'From industrial sanitation to machine maintenance, we provide SOP-driven protocols for continuous production cycles.',
-    cta: 'Get a Quotation',
-    ctaLink: '/contact',
+    label: 'Retail Environments',
+    title: 'Modern\nRetail Shop',
+    subtitle: 'From luxury boutiques to retail chains, we maintain the highest standards of presentation and customer-facing excellence.',
+    cta: 'Retail Support',
+    ctaLink: '/services',
     kenBurns: 'zoom-in-left',
   },
   {
     id: 3,
-    image: factoryAerial,
+    image: hospitalInterior,
     accent: '#ffcea5',
     accentRgb: '255, 206, 165',
-    label: 'Zero Downtime',
-    title: 'Integrated Industrial\nEcosystems',
-    subtitle: '100% compliant, in-house trained professionals dedicated to the safety and efficiency of your manufacturing facilities.',
-    cta: 'Why Teamgenix',
-    ctaLink: '/why-teamgenix',
+    label: 'Healthcare Infrastructure',
+    title: 'Healthcare &\nHospital',
+    subtitle: 'Medical-grade hygiene and facility compliance for hospitals, clinics, and high-care diagnostic centers.',
+    cta: 'Medical Services',
+    ctaLink: '/services',
     kenBurns: 'zoom-out',
+  },
+  {
+    id: 4,
+    image: corporateOffice,
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+    label: 'Office Workspace',
+    title: 'Modern\nCorporate Office',
+    subtitle: 'World-class workspace maintenance for Fortune 500 companies and growing enterprises alike.',
+    cta: 'Office Support',
+    ctaLink: '/services',
+    kenBurns: 'zoom-in-right',
   },
 ];
 

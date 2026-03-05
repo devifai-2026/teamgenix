@@ -97,7 +97,7 @@ export default function Footer() {
                                     <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" strokeWidth="1.8" />
                                 </svg>
                             </div>
-                            <span className="text-gray-500 font-medium">23/1, Kabi Nabin Sen Road, Dum Dum, Kolkata</span>
+                            <span className="text-gray-500 font-medium">23/1, Kabi Nabin Sen Road,Kajipara,Dum Dum, Kolkata</span>
                         </li>
                         <li className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(255,206,165,0.15)', border: '1px solid rgba(255,206,165,0.3)', color: '#a66a3a' }}>

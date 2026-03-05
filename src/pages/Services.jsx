@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
-import { FaArrowRight, FaCheck, FaShieldAlt, FaClock, FaUsers, FaStar } from 'react-icons/fa';
+import { FaArrowRight, FaCheck, FaShieldAlt, FaClock, FaUsers, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import workerCleaning from '../assets/images/worker_cleaning.png';
 import factoryHero from '../assets/images/factory_hero.png';
 import factoryProduction from '../assets/images/factory_production.png';
@@ -97,6 +97,30 @@ const highlights = [
 export default function Services() {
     const [searchParams] = useSearchParams();
     const [active, setActive] = useState(0);
+    const [cleaningIdx, setCleaningIdx] = useState(0);
+
+    useEffect(() => {
+        let interval;
+        if (active === 0) {
+            interval = setInterval(() => {
+                setCleaningIdx(prev => (prev + 1) % cleaningDisciplines.length);
+            }, 3500);
+        } else {
+            setCleaningIdx(0);
+        }
+        return () => clearInterval(interval);
+    }, [active]);
+
+    const sliderRef = useRef(null);
+
+    const scrollSlider = (direction) => {
+        if (sliderRef.current) {
+            const { scrollLeft, clientWidth } = sliderRef.current;
+            const scrollAmount = clientWidth > 768 ? clientWidth / 3 : clientWidth;
+            const scrollTo = direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount;
+            sliderRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
+    };
 
     useEffect(() => {
         const serviceId = searchParams.get('s');
@@ -201,16 +225,41 @@ export default function Services() {
                         <div className="lg:col-span-3">
                             <AnimatedSection key={active} className="rounded-3xl overflow-hidden"
                                 style={{ background: '#ffffff', border: `1px solid rgba(${servicesList[active].accentRgb},0.2)`, backdropFilter: 'blur(16px)' }}>
-                                <div className="relative h-56 overflow-hidden">
-                                    <img src={servicesList[active].image} alt={servicesList[active].title}
-                                        className="w-full h-full object-cover" style={{ opacity: 0.6 }} />
-                                    <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 30%, rgba(13,13,43,0.95) 100%)` }} />
-                                    <div className="absolute bottom-4 left-6 right-6">
-                                        <div className="text-xs font-bold uppercase tracking-widest mb-1 font-heading"
-                                            style={{ color: servicesList[active].accent }}>
+                                <div className="relative h-64 md:h-80 overflow-hidden">
+                                    {active === 0 ? (
+                                        /* Auto-sliding gallery for Industrial Cleaning */
+                                        <div className="w-full h-full relative">
+                                            {cleaningDisciplines.map((item, i) => (
+                                                <div 
+                                                    key={i}
+                                                    className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                                                    style={{ opacity: i === cleaningIdx ? 1 : 0 }}
+                                                >
+                                                    <img 
+                                                        src={item.image} 
+                                                        alt={item.title} 
+                                                        className="w-full h-full object-cover" 
+                                                    />
+                                                    {/* Text label for the specific cleaning type */}
+                                                    <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+                                                        <span className="text-xs font-bold text-navy uppercase tracking-wider">{item.title}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        /* Static image for other services */
+                                        <>
+                                            <img src={servicesList[active].image} alt={servicesList[active].title}
+                                                className="w-full h-full object-cover" />
+                                            <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 30%, rgba(13,13,43,0.4) 100%)` }} />
+                                        </>
+                                    )}
+                                    
+                                    <div className="absolute top-4 left-6">
+                                        <div className="inline-block px-3 py-1 rounded-full bg-navy/80 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-white border border-white/10">
                                             Service {String(active + 1).padStart(2, '0')}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-[#0f0f1e] font-heading">{servicesList[active].title}</h3>
                                     </div>
                                 </div>
                                 <div className="p-8">
@@ -230,29 +279,7 @@ export default function Services() {
                     </div>
                 </div>
 
-                {/* Specialized Cleaning Portfolio (Only shows when Industrial Cleaning is active) */}
-                {active === 0 && (
-                    <div className="mt-24">
-                        <AnimatedSection className="text-center mb-12">
-                            <h3 className="text-3xl font-bold text-[#0f0f1e] font-heading mb-4">
-                                Specialized <span className="gradient-text-sun">Cleaning Gallery</span>
-                            </h3>
-                            <p className="text-gray-400">Precision cleaning across various industrial environments</p>
-                        </AnimatedSection>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {cleaningDisciplines.map((item, i) => (
-                                <AnimatedSection key={i} delay={i * 0.05} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
-                                    <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                    <div className="absolute bottom-5 left-5 right-5">
-                                        <h4 className="text-white font-heading font-bold mb-1">{item.title}</h4>
-                                        <p className="text-white/70 text-[10px] md:text-xs leading-tight">{item.desc}</p>
-                                    </div>
-                                </AnimatedSection>
-                            ))}
-                        </div>
-                    </div>
-                )}
+
             </section>
 
             {/* ===== CTA ===== */}

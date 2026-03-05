@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
 import AnimatedSection from '../components/AnimatedSection';
@@ -7,6 +7,15 @@ import workerCleaning from '../assets/images/worker_cleaning.png';
 import factoryHero from '../assets/images/factory_hero.png';
 import factoryProduction from '../assets/images/factory_production.png';
 import factoryAerial from '../assets/images/factory_aerial.png';
+import floorMopping from '../assets/images/floor_mopping.png';
+import machineScrubbing from '../assets/images/machine_scrubbing.png';
+import vacuumCleaning from '../assets/images/vacuum_cleaning.png';
+import roadSweeper from '../assets/images/road_sweeper.png';
+import glassCleaning from '../assets/images/glass_cleaning.png';
+import manualSweeping from '../assets/images/manual_sweeping.png';
+import highDusting from '../assets/images/high_dusting.png';
+import furnitureCleaning from '../assets/images/furniture_cleaning.png';
+import hotelBedMaking from '../assets/images/hotel_bed_making.png';
 
 /* ============================================================
    DATA
@@ -70,6 +79,18 @@ const stats = [
   { value: 'Zero', label: 'Outsourcing', accent: '#fff9d4', accentRgb: '255, 249, 212' },
 ];
 
+const cleaningDisciplines = [
+  { title: 'Industrial Floor Mopping', image: floorMopping },
+  { title: 'Machine Scrubbing', image: machineScrubbing },
+  { title: 'Full-Scale Vacuuming', image: vacuumCleaning },
+  { title: 'Road Sweeper Machine', image: roadSweeper },
+  { title: 'Exterior Glass Cleaning', image: glassCleaning },
+  { title: 'Manual Road Sweeping', image: manualSweeping },
+  { title: 'High Dusting Services', image: highDusting },
+  { title: 'Furniture Cleaning', image: furnitureCleaning },
+  { title: 'Hospitality Management', image: hotelBedMaking },
+];
+
 
 
 const industries = [
@@ -102,6 +123,19 @@ const industries = [
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
+  const [cleaningIdx, setCleaningIdx] = useState(0);
+
+  useEffect(() => {
+    let interval;
+    if (activeService === 0) {
+      interval = setInterval(() => {
+        setCleaningIdx((prev) => (prev + 1) % cleaningDisciplines.length);
+      }, 3500);
+    } else {
+      setCleaningIdx(0);
+    }
+    return () => clearInterval(interval);
+  }, [activeService]);
 
   return (
     <div className="overflow-x-hidden min-h-screen" style={{ background: '#ffffff' }}>
@@ -241,32 +275,61 @@ export default function Home() {
             {/* Service image (right) */}
             <div className="lg:col-span-3">
               <AnimatedSection key={activeService} className="relative rounded-3xl overflow-hidden">
-                <div style={{ height: '480px' }} className="relative">
-                  <img
-                    src={services[activeService].image}
-                    alt={services[activeService].title}
-                    className="w-full h-full object-cover transition-all duration-700"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0"
-                    style={{ background: `linear-gradient(135deg, rgba(5,5,24,0.7), rgba(${services[activeService].accentRgb},0.1))` }} />
-                  {/* Border glow */}
-                  <div className="absolute inset-0 rounded-3xl"
+                <div style={{ height: '480px' }} className="relative bg-gray-50">
+                  {activeService === 0 ? (
+                    /* Auto-sliding gallery for Industrial Cleaning */
+                    <div className="w-full h-full relative">
+                      {cleaningDisciplines.map((item, i) => (
+                        <div
+                          key={i}
+                          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                          style={{ opacity: i === cleaningIdx ? 1 : 0 }}
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Label Badge */}
+                          <div className="absolute bottom-6 left-8 bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-full border border-gray-100 shadow-xl">
+                            <span className="text-[10px] font-bold text-navy uppercase tracking-widest">{item.title}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    /* Static image for other services */
+                    <>
+                      <img
+                        src={services[activeService].image}
+                        alt={services[activeService].title}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Only show overlay if it's not the auto-slider (to match requested high clarity) */}
+                      <div className="absolute inset-0"
+                        style={{ background: `linear-gradient(135deg, rgba(5,5,24,0.3) 0%, rgba(${services[activeService].accentRgb},0.05) 100%)` }} />
+                    </>
+                  )}
+
+                  {/* Shared Border Glow */}
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none"
                     style={{ border: `1px solid rgba(${services[activeService].accentRgb}, 0.25)` }} />
 
-                  {/* Caption */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-xs uppercase tracking-widest mb-2 font-heading"
-                      style={{ color: services[activeService].accent }}>
-                      {String(activeService + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+                  {/* Caption Overlay (Only for non-slider or as a base) */}
+                  {activeService !== 0 && (
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <div className="text-xs uppercase tracking-widest mb-2 font-heading"
+                        style={{ color: services[activeService].accent }}>
+                        {String(activeService + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white font-heading mb-2 drop-shadow-md">
+                        {services[activeService].title}
+                      </h3>
+                      <p className="text-white/80 text-sm leading-relaxed drop-shadow-sm">
+                        {services[activeService].desc}
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-white font-heading mb-2">
-                      {services[activeService].title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {services[activeService].desc}
-                    </p>
-                  </div>
+                  )}
                 </div>
               </AnimatedSection>
             </div>
