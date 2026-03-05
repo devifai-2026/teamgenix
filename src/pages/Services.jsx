@@ -6,6 +6,27 @@ import workerCleaning from '../assets/images/worker_cleaning.png';
 import factoryHero from '../assets/images/factory_hero.png';
 import factoryProduction from '../assets/images/factory_production.png';
 import factoryAerial from '../assets/images/factory_aerial.png';
+import floorMopping from '../assets/images/floor_mopping.png';
+import machineScrubbing from '../assets/images/machine_scrubbing.png';
+import vacuumCleaning from '../assets/images/vacuum_cleaning.png';
+import roadSweeper from '../assets/images/road_sweeper.png';
+import glassCleaning from '../assets/images/glass_cleaning.png';
+import manualSweeping from '../assets/images/manual_sweeping.png';
+import highDusting from '../assets/images/high_dusting.png';
+import furnitureCleaning from '../assets/images/furniture_cleaning.png';
+import hotelBedMaking from '../assets/images/hotel_bed_making.png';
+
+const cleaningDisciplines = [
+    { title: 'Industrial Floor Mopping', desc: 'SOP-driven floor mopping for manufacturing units', image: floorMopping },
+    { title: 'Machine Scrubbing', desc: 'Heavy-duty machine scrubbing for warehouse longevity', image: machineScrubbing },
+    { title: 'Full-Scale Vacuuming', desc: 'Industrial vacuum cleaner services for dust-free zones', image: vacuumCleaning },
+    { title: 'Road Sweeper Machine', desc: 'Mechanical road cleaning for factory exterior maintenance', image: roadSweeper },
+    { title: 'Exterior Glass Cleaning', desc: 'Safe, high-quality glass and facade cleaning solutions', image: glassCleaning },
+    { title: 'Manual Road Sweeping', desc: 'Precise manual cleaning for non-accessible areas', image: manualSweeping },
+    { title: 'High Dusting Services', desc: 'Specialized cleaning for rafters, pipes, and high vents', image: highDusting },
+    { title: 'Furniture Cleaning', desc: 'Deep sanitation for premium office and canteen furniture', image: furnitureCleaning },
+    { title: 'Hospitality Management', desc: 'Professional bed making and HK for hotels/guest houses', image: hotelBedMaking },
+];
 
 const servicesList = [
     {
@@ -26,7 +47,7 @@ const servicesList = [
     },
     {
         icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-        title: 'Industrial Maintenance',
+        title: 'Electromechanic Maintenance',
         desc: 'Expert technical support, preventive machinery maintenance, and quick emergency response to keep your production lines fully operational.',
         features: ['Machine maintenance engineers', 'Preventive plant maintenance', 'Electrical infrastructure audits', 'Production downtime reduction'],
         image: factoryProduction,
@@ -42,7 +63,7 @@ const servicesList = [
     },
     {
         icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-        title: 'Industrial Facility Management',
+        title: 'Facility Management',
         desc: 'End-to-end management of all your factory needs, bringing together technical, cleaning, and administrative services under one expert umbrella.',
         features: ['Full plant oversight', 'Industrial SOP compliance', '24/7 technical standby', 'Facility audit & reporting'],
         image: factoryAerial,
@@ -208,6 +229,30 @@ export default function Services() {
                         </div>
                     </div>
                 </div>
+
+                {/* Specialized Cleaning Portfolio (Only shows when Industrial Cleaning is active) */}
+                {active === 0 && (
+                    <div className="mt-24">
+                        <AnimatedSection className="text-center mb-12">
+                            <h3 className="text-3xl font-bold text-[#0f0f1e] font-heading mb-4">
+                                Specialized <span className="gradient-text-sun">Cleaning Gallery</span>
+                            </h3>
+                            <p className="text-gray-400">Precision cleaning across various industrial environments</p>
+                        </AnimatedSection>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {cleaningDisciplines.map((item, i) => (
+                                <AnimatedSection key={i} delay={i * 0.05} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+                                    <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute bottom-5 left-5 right-5">
+                                        <h4 className="text-white font-heading font-bold mb-1">{item.title}</h4>
+                                        <p className="text-white/70 text-[10px] md:text-xs leading-tight">{item.desc}</p>
+                                    </div>
+                                </AnimatedSection>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </section>
 
             {/* ===== CTA ===== */}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import navlogo from "../../src/assets/NavbarLogo.png"
+import logo from "../../src/assets/logo.png"
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -37,9 +38,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center shrink-0" onClick={handleNavClick}>
           <div className="h-16 w-auto flex items-center shrink-0">
-            <img src={navlogo} alt="TeamGenix Logo" className="h-full w-auto object-contain" />
+            {/* Desktop & Mobile Logo */}
+            <img src={navlogo} alt="TeamGenix Logo" className="block md:hidden lg:block h-full w-auto object-contain" />
+            {/* Tablet Logo Only */}
+            <img src={logo} alt="TeamGenix Logo" className="hidden md:block lg:hidden h-14 w-auto object-contain" />
           </div>
-       
         </Link>
 
         {/* Desktop Nav */}

@@ -7,7 +7,7 @@ const contactInfo = [
     {
         icon: FaMapMarkerAlt,
         label: 'Our Office',
-        value: 'Kazipara, Dum Dum\nKolkata, West Bengal, India',
+        value: '23/1, Kabi Nabin Sen Road\nKajipara, Dum Dum\nKOLKATA – 700028',
         link: null,
         accent: '#f5d060', accentRgb: '245,208,96',
     },

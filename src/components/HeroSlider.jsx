@@ -148,19 +148,19 @@ export default function HeroSlider() {
               transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
               className="container mx-auto px-6 md:px-12 max-w-7xl"
             >
-              <div className="max-w-3xl">
+              <div className="max-w-3xl pt-12 md:pt-0">
                 {/* Live indicator + label */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15, duration: 0.5 }}
-                  className="mb-6 flex items-center gap-3"
+                  className="mb-2 md:mb-4 flex items-center gap-3"
                 >
                   <span
                     className="w-2 h-2 rounded-full"
                     style={{ background: slide.accent, boxShadow: `0 0 8px ${slide.accent}`, animation: 'pulse-sun 2s infinite' }}
                   />
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] font-heading"
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] font-heading"
                     style={{ color: slide.accent }}>
                     {slide.label}
                   </span>
@@ -171,7 +171,7 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25, duration: 0.7 }}
-                  className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-heading text-white"
+                  className="text-2xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-5 leading-tight font-heading text-white"
                 >
                   {slide.title.split('\n').map((line, i) => (
                     <span key={i}>
@@ -188,10 +188,32 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="text-lg md:text-xl text-white/65 mb-10 leading-relaxed max-w-xl"
+                  className="text-xs md:text-lg text-white/65 mb-4 md:mb-6 leading-relaxed max-w-xl"
                 >
                   {slide.subtitle}
                 </motion.p>
+
+                {/* Industries Chips */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="flex flex-wrap gap-2 mb-6 md:mb-8"
+                >
+                  {[
+                    'Industry (Factory Setup)',
+                    'Retail Shop',
+                    'Hospital',
+                    'Corporate Office'
+                  ].map((industry, i) => (
+                    <div 
+                      key={i} 
+                      className="px-2 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[8px] md:text-[10px] font-bold uppercase tracking-wider text-white/80"
+                    >
+                      {industry}
+                    </div>
+                  ))}
+                </motion.div>
 
                 {/* Buttons */}
                 <motion.div
