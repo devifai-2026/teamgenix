@@ -115,6 +115,48 @@ const industries = [
     accent: '#f5d060',
     accentRgb: '245, 208, 96',
   },
+  {
+    title: 'Pharmaceutical & Labs',
+    desc: 'Maintaining sterile environments and strict regulatory compliance for life sciences and production facilities.',
+    image: 'https://images.unsplash.com/photo-1669707041081-dd4d51943041?q=80&w=900&auto=format&fit=crop',
+    accent: '#ffcea5',
+    accentRgb: '255, 206, 165',
+  },
+  {
+    title: 'Hospitality & Retail',
+    desc: 'Premium service standards for hotels, restaurants, and high-end shopping centers.',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop',
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+  },
+  {
+    title: 'Logistics & Warehousing',
+    desc: 'Robust facility management for large-scale distribution centers and supply chain hubs.',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=900&auto=format&fit=crop',
+    accent: '#ffcea5',
+    accentRgb: '255, 206, 165',
+  },
+  {
+    title: 'Real Estate & Residential',
+    desc: 'Comprehensive facility management for luxury residential complexes and commercial real estate.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=900&auto=format&fit=crop',
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+  },
+  {
+    title: 'Energy & Resources',
+    desc: 'Specialized support for power plants, renewable energy sites, and resource extraction facilities.',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=900&auto=format&fit=crop',
+    accent: '#ffcea5',
+    accentRgb: '255, 206, 165',
+  },
+  {
+    title: 'Educational Institutions',
+    desc: 'Creating safe, clean, and healthy learning environments for schools, colleges, and universities.',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=900&auto=format&fit=crop',
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
+  },
 ];
 
 /* ============================================================
