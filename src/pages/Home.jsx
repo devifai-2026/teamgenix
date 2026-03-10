@@ -90,9 +90,6 @@ const cleaningDisciplines = [
   { title: 'Furniture Cleaning', image: furnitureCleaning },
   { title: 'Hospitality Management', image: hotelBedMaking },
 ];
-
-
-
 const industries = [
   {
     title: 'Manufacturing',
@@ -149,6 +146,13 @@ const industries = [
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop',
     accent: '#ffcea5',
     accentRgb: '255, 206, 165',
+  },
+  {
+    title: 'Logistics & Warehousing',
+    desc: 'Expert facility management for logistics hubs and warehouses, ensuring smooth operations and safety across supply chains.',
+    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=900&auto=format&fit=crop',
+    accent: '#f5d060',
+    accentRgb: '245, 208, 96',
   },
 ];
 
